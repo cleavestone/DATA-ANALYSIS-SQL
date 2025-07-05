@@ -39,9 +39,9 @@ This project is designed to help you practice and master SQL concepts using real
 - `customers.csv` — Customer data with basic details like name, email, and signup date.
 - `products.csv` — Product catalog with product names and prices.
 - `orders.csv` — Orders made by customers, including quantity and order dates.
-- `customers_inserts.sql` — SQL `INSERT` statements to populate the `customers` table.
-- `products_inserts.sql` — SQL `INSERT` statements for the `products` table.
-- `orders_inserts.sql` — SQL `INSERT` statements for the `orders` table.
+- `create_tables.sql` - Creates Table customers,products and orders
+- `insert_data.sql`- Populates our three tables using INSERT statement
+- `queriers.sql` - Shows the problem and corresponding queries i have run on my machine
 
 ## 🧱 Database Schema
 
