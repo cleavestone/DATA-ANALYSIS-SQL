@@ -1,18 +1,25 @@
 # 🧠 SQL Practice Project
 
-```
-**QN: Write a SQL query to find the top 5 customers who have spent the most total money on orders.**
+### 🧠 SQL Question
 
-mysql> SELECT
+> **Write a SQL query to find the top 5 customers who have spent the most total money on orders.**
+
+---
+
+### 💻 SQL Query
+
+```sql
+SELECT
     c.customer_name,
     c.email,
     SUM(o.quantity * p.price) AS total_spent
-    FROM customers AS c
-    JOIN orders AS o ON c.customer_id = o.customer_id
-    JOIN products AS p ON o.product_id = p.product_id
-    GROUP BY c.customer_id, c.customer_name, c.email
-    ORDER BY total_spent DESC
-    LIMIT 5;
+FROM customers AS c
+JOIN orders AS o ON c.customer_id = o.customer_id
+JOIN products AS p ON o.product_id = p.product_id
+GROUP BY c.customer_id, c.customer_name, c.email
+ORDER BY total_spent DESC
+LIMIT 5;
+
 +----------------+---------------------------------+--------------------+
 | customer_name  | email                           | total_spent        |
 +----------------+---------------------------------+--------------------+
