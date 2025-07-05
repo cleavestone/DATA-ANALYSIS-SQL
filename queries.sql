@@ -112,3 +112,24 @@ SELECT
     ON o.product_id = p.product_id
     GROUP BY c.customer_name,c.email
     ORDER BY total_spent DESC;
+
+/*
+Question:
+Write a query to find all customers who have placed more orders than the average number of orders placed by all customers.
+*/
+
+SELECT 
+    c.customer_name,
+    c.email,
+    COUNT(o.order_id) AS number_of_orders
+FROM customers AS c
+JOIN orders AS o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name, c.email
+HAVING COUNT(o.order_id) > (
+    SELECT AVG(order_count)
+    FROM (
+        SELECT COUNT(*) AS order_count
+        FROM orders
+        GROUP BY customer_id
+    ) AS customer_orders
+);
