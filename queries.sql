@@ -130,6 +130,8 @@ LIMIT 3;
 For each order, return the order_id, customer_id, and quantity, along with a new column
 named order_size that categorizes the order as 'Small' if the quantity is between 1 and 2, 
 'Medium' if the quantity is between 3 and 5, and 'Large' if the quantity is greater than 5. */
+
+
 SELECT
     o.order_id,
     c.customer_id,
@@ -141,4 +143,27 @@ SELECT
     END AS order_size
 FROM customers AS c
 INNER JOIN orders AS o ON c.customer_id = o.customer_id;
+
+/*
+For each customer, return their `customer_name`, `email`, and `total_spent` calculated
+ as the sum of `quantity × price` from their orders, along with a new column named 
+ `spending_level` that categorizes them as a `'Low Spender'` if their total spending is 
+ less than 5000, a `'Medium Spender'` if their total spending is between 5000 and 10000, 
+ and a `'High Spender'` if their total spending exceeds 10000. */
+
+
+SELECT
+    c.customer_id,
+    c.email,
+    SUM(o.quantity * p.price) AS total_spent,
+    CASE
+        WHEN SUM(o.quantity * p.price) < 5000 THEN 'Low Spender'
+        WHEN SUM(o.quantity * p.price) < 1000 THEN 'Medium Spender'
+        ELSE 'High Spender'
+    END AS spending_level
+FROM customers AS c
+INNER JOIN orders AS o ON c.customer_id = o.customer_id
+INNER JOIN products AS p ON p.product_id = o.product_id
+GROUP BY c.customer_id, c.email;
+
 
