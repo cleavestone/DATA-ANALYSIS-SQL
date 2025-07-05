@@ -112,3 +112,16 @@ HAVING COUNT(o.order_id) > (
         GROUP BY customer_id
     ) AS customer_orders
 );
+
+/*
+Question: Find the top 3 products with the highest total revenue.
+*/
+SELECT
+    p.product_name,
+    SUM(o.quantity) AS total_quantity_sold,
+    SUM(o.quantity * p.price) AS total_revenue
+FROM orders AS o
+INNER JOIN products AS p ON p.product_id = o.product_id
+GROUP BY p.product_name
+ORDER BY total_revenue DESC
+LIMIT 3;
