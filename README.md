@@ -1,5 +1,30 @@
 # 🧠 SQL Practice Project
 
+```
+**QN: Write a SQL query to find the top 5 customers who have spent the most total money on orders.**
+
+mysql> SELECT
+    c.customer_name,
+    c.email,
+    SUM(o.quantity * p.price) AS total_spent
+    FROM customers AS c
+    JOIN orders AS o ON c.customer_id = o.customer_id
+    JOIN products AS p ON o.product_id = p.product_id
+    GROUP BY c.customer_id, c.customer_name, c.email
+    ORDER BY total_spent DESC
+    LIMIT 5;
++----------------+---------------------------------+--------------------+
+| customer_name  | email                           | total_spent        |
++----------------+---------------------------------+--------------------+
+| Alex Jenkins   | zjames@martinez.com             |           24745.24 |
+| Thomas Barry   | raymondferguson@kirby-price.com | 22559.630000000005 |
+| James Allen    | nicholerasmussen@guzman.com     |           19875.42 |
+| Megan Delacruz | karen58@hotmail.com             |           19677.49 |
+| Judith Allen   | rebekahsparks@moore.com         |           19537.91 |
++----------------+---------------------------------+--------------------+
+
+```
+
 This project is designed to help you practice and master SQL concepts using realistic, randomly generated datasets.
 
 ## 📂 Project Structure
@@ -72,25 +97,3 @@ This project supports hands-on practice with:
 This project was built as a personal hands-on SQL playground.  
 Feel free to fork or expand with more tables and use cases!
 
-```
-mysql> SELECT
-    c.customer_name,
-    c.email,
-    SUM(o.quantity * p.price) AS total_spent
-    FROM customers AS c
-    JOIN orders AS o ON c.customer_id = o.customer_id
-    JOIN products AS p ON o.product_id = p.product_id
-    GROUP BY c.customer_id, c.customer_name, c.email
-    ORDER BY total_spent DESC
-    LIMIT 5;
-+----------------+---------------------------------+--------------------+
-| customer_name  | email                           | total_spent        |
-+----------------+---------------------------------+--------------------+
-| Alex Jenkins   | zjames@martinez.com             |           24745.24 |
-| Thomas Barry   | raymondferguson@kirby-price.com | 22559.630000000005 |
-| James Allen    | nicholerasmussen@guzman.com     |           19875.42 |
-| Megan Delacruz | karen58@hotmail.com             |           19677.49 |
-| Judith Allen   | rebekahsparks@moore.com         |           19537.91 |
-+----------------+---------------------------------+--------------------+
-
-```
