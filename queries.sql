@@ -93,3 +93,22 @@ FROM customers AS c
 INNER JOIN orders AS o ON c.customer_id = o.customer_id
 INNER JOIN products AS p ON o.product_id = p.product_id
 WHERE o.order_date >= CURDATE() - INTERVAL 30 DAY;
+
+/*
+Question:
+Write a SQL query to find the top 5 customers who have spent the most total money on orders.
+*/
+
+SELECT
+    c.customer_name,
+    c.email,
+    SUM(o.quantity * p.price) AS total_spent
+    FROM customers AS c
+    INNER JOIN
+    orders AS o
+    ON c.customer_id = o.customer_id
+    INNER JOIN
+    products as p
+    ON o.product_id = p.product_id
+    GROUP BY c.customer_name,c.email
+    ORDER BY total_spent DESC;
