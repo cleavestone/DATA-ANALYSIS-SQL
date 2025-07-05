@@ -125,3 +125,20 @@ INNER JOIN products AS p ON p.product_id = o.product_id
 GROUP BY p.product_name
 ORDER BY total_revenue DESC
 LIMIT 3;
+
+/*
+For each order, return the order_id, customer_id, and quantity, along with a new column
+named order_size that categorizes the order as 'Small' if the quantity is between 1 and 2, 
+'Medium' if the quantity is between 3 and 5, and 'Large' if the quantity is greater than 5. */
+SELECT
+    o.order_id,
+    c.customer_id,
+    o.quantity,
+    CASE
+        WHEN o.quantity <= 2 THEN 'Small'
+        WHEN o.quantity <= 5 THEN 'Medium'
+        ELSE 'Large'
+    END AS order_size
+FROM customers AS c
+INNER JOIN orders AS o ON c.customer_id = o.customer_id;
+
