@@ -22,14 +22,7 @@ LIMIT 10;
 Question:
 Write a SQL query to get a list of all customers, including those who have never placed an order.
 For each customer, show:
-
-customer_name
-
-email
-
-order_id (if any)
-
-order_date (if any) */
+ */
 
 SELECT 
   c.customer_name,
@@ -56,11 +49,6 @@ Question:
 Write a SQL query to show the total number of orders and total quantity ordered for each product.
 Return:
 
-product_name
-
-total_orders (how many times it appears in the orders table)
-
-total_quantity (sum of quantity ordered)
  */
 SELECT 
   p.product_name,
@@ -74,15 +62,6 @@ GROUP BY p.product_name;
 Question:
 Write a SQL query to find all customers who have placed an order in the last 30 days.
 
-Return the following columns:
-
-customer_name
-
-email
-
-order_date
-
-product_name
 */
 SELECT 
   c.customer_name,
