@@ -224,3 +224,20 @@ SELECT
     revenue,
     RANK() OVER (ORDER BY revenue DESC) AS `rank`
 FROM product_revenue;
+
+# LEAD
+/* For each customer’s order, return the customer_id, order_id, and order_date, 
+along with a new column named next_order_date that displays the date of the customer’s 
+next order, if it exists. */
+
+SELECT
+    customer_id,
+    order_id,
+    order_date,
+    LEAD(order_date) OVER (
+        PARTITION BY customer_id
+        ORDER BY order_date
+    ) AS next_order_date
+FROM orders
+LIMIT 30;
+
