@@ -45,7 +45,6 @@ LIMIT 5;
 
 ```
 
-This project is designed to help you practice and master SQL concepts using realistic, randomly generated datasets.
 
 ## 📂 Project Structure
 
@@ -82,20 +81,22 @@ This project is designed to help you practice and master SQL concepts using real
 | order_date  | DATE   | When the order was made           |
 | quantity    | INT    | Number of units ordered           |
 
-## ✅ Concepts Covered
+## ✅ SQL Concepts Practiced
 
-This project supports hands-on practice with:
+This project helps reinforce the following SQL topics:
 
-- `JOIN` (INNER, LEFT)
-- `GROUP BY` and aggregation
-- Filtering using `WHERE` and date logic
-- Subqueries
-- CASE statements
-- Common Table Expressions (CTEs)
-- Window Functions (`ROW_NUMBER`, `RANK`, `LEAD`, `LAG`)
-- Set Operators (`UNION`, `INTERSECT`, `EXCEPT`)
-- String and pattern matching (`LIKE`, `REGEXP`)
-- Views and stored procedures (optional)
+- 🔗 **JOINs** (`INNER`, `LEFT`)
+- 📊 **Aggregations** and `GROUP BY`
+- 📆 **Filtering** with `WHERE`, dates, and logical conditions
+- 🔍 **Subqueries** (correlated & non-correlated)
+- 🧩 **CASE statements** for conditional logic
+- 🧵 **String and pattern matching** (`LIKE`, `REGEXP`)
+- 📐 **Window functions** (`ROW_NUMBER`, `RANK`, `LEAD`, `LAG`)
+- 🧱 **Common Table Expressions (CTEs)** using `WITH`
+- ♻️ **Set operations** (`UNION`, `INTERSECT`, `EXCEPT`)
+- 👁️ **Views** (virtual tables)
+- ⚙️ **Stored procedures** (optional, for advanced users)
+
 
 ## 🚀 Getting Started
 
@@ -116,4 +117,10 @@ This project supports hands-on practice with:
 
 This project was built as a personal hands-on SQL playground.  
 Feel free to fork or expand with more tables and use cases!
+
+## 🛠️ Requirements
+
+- **MySQL** (preferred) or **PostgreSQL**
+- SQL client (e.g., MySQL Workbench, pgAdmin) **or** terminal/command-line access
+
 
