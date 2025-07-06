@@ -54,6 +54,7 @@ LIMIT 5;
 - `create_tables.sql` - Creates Table customers,products and orders
 - `insert_data.sql`- Populates our three tables using INSERT statement
 - `queriers.sql` - Shows the problem and corresponding queries i have run on my machine
+- `views_and_stored_procedures.sql` - queries related to views and stored procedures
 
 ## 🧱 Database Schema
 
