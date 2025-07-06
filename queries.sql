@@ -203,3 +203,24 @@ INNER JOIN
     ON c.customer_id = s.customer_id;
 
 
+# Window Functions (RANK)
+/*
+Write a SQL query to rank products based on their total revenue generated from orders.
+Return each product_id, the total revenue (calculated as quantity × price), and the rank of each product in descending order of revenue.
+Products with the same revenue should share the same rank (i.e., use dense ranking with gaps).
+*/
+
+WITH product_revenue AS (
+    SELECT
+        product_id,
+        SUM(quantity * price) AS revenue
+    FROM orders
+    JOIN products USING (product_id)
+    GROUP BY product_id
+)
+
+SELECT
+    product_id,
+    revenue,
+    RANK() OVER (ORDER BY revenue DESC) AS `rank`
+FROM product_revenue;
