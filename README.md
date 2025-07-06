@@ -1,12 +1,25 @@
 # 🧠 SQL Practice Project
 
-### 🧠 SQL Question
-
-> **Write a SQL query to find the top 5 customers who have spent the most total money on orders.**
+Welcome to the **SQL Practice Project**, a hands-on mini project designed to help you master SQL by working with realistic, randomly generated datasets.
 
 ---
 
-### 💻 SQL Query
+## 📌 Project Overview
+
+This project includes a collection of practice questions and queries focused on core SQL concepts such as `JOIN`, `GROUP BY`, subqueries, window functions, and more.
+
+You’ll use three main tables:
+- `customers`
+- `products`
+- `orders`
+
+Each table is pre-populated with synthetic data generated using Python and Faker.
+
+---
+
+## 📊 Sample Query & Output
+
+> **🧠 Task:** Find the top 5 customers who have spent the most money on orders.
 
 ```sql
 SELECT
