@@ -166,4 +166,40 @@ INNER JOIN orders AS o ON c.customer_id = o.customer_id
 INNER JOIN products AS p ON p.product_id = o.product_id
 GROUP BY c.customer_id, c.email;
 
+# Using CTE (Common Table Expression)
+/*
+For each customer, return their customer ID, name, email, total amount spent, and categorize
+them as a Low Spender (≤ 5000), Medium Spender (≤ 10000), or High Spender (> 10000) based on
+their total spending. */
+
+WITH spent_table AS (
+    SELECT 
+        o.customer_id,
+        SUM(o.quantity * p.price) AS total_spent,
+        CASE
+            WHEN SUM(o.quantity * p.price) <= 5000 THEN 'Low Spender'
+            WHEN SUM(o.quantity * p.price) <= 10000 THEN 'Medium Spender'
+            ELSE 'High Spender'
+        END AS spending_level
+    FROM 
+        orders AS o
+    INNER JOIN 
+        products AS p 
+        ON o.product_id = p.product_id
+    GROUP BY 
+        o.customer_id
+)
+
+SELECT 
+    c.customer_id,
+    c.customer_name,
+    c.email,
+    s.total_spent,
+    s.spending_level
+FROM 
+    customers AS c
+INNER JOIN 
+    spent_table AS s 
+    ON c.customer_id = s.customer_id;
+
 
